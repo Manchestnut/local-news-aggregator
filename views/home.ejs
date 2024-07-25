@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Lite</title>
+</head>
+<body>
+    <h1>Headlines</h1>
+    <ul>
+        <% for (let i=0; i < Headlines.length; i++) { %>
+            <li><a href="/article/<%= encodeURIComponent(Links[i]) %>"><%= Headlines[i] %></a></li>
+            <% Links[i] %>
+        <% }; %>
+    </ul>
+</body>
+</html>
