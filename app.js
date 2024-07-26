@@ -62,7 +62,7 @@ async function scrapePage(url) {
     try {
         const { data } = await axios.get(url);
         const $ = cheerio.load(data)
-        const title = $('.story_links, .title-line').text();
+        const title = $('.story_links, .title-line h1').text();
         const paragraphs = [];
         $('.story_main p, .article-body p').each((i, elem) => {
             paragraphs.push($(elem).text());
