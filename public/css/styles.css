@@ -1,9 +1,9 @@
 body, html {
     margin: 0;
     padding: 0;
-    width: 100%;
-    font-family: Helvetica, sans-serif;;
+    font-family: Helvetica, sans-serif;
 }
+
 header {
     border-bottom: 1px solid lightslategray;
 }
@@ -21,7 +21,7 @@ header h4 span {
 }
 
 main {
-    padding: 20px;
+    padding-inline: 20px;
 }
 
 main ul li{
@@ -30,4 +30,5 @@ main ul li{
 
 main p {
     line-height: 150%;
+    word-wrap: break-word;
 }
