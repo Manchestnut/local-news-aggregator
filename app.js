@@ -61,9 +61,12 @@ async function scrapePage(url) {
     try {
         const { data } = await axios.get(url);
         const $ = cheerio.load(data)
-        const title = $('.story_links').text();
-        const body = $('.story_main p').text();
-        const result = {title, body}
+        const title = $('.story_links, .title-line').text();
+        const paragraphs = [];
+        $('.story_main p, .article-body p').each((i, elem) => {
+            paragraphs.push($(elem).text());
+        })
+        const result = {title, paragraphs}
 
         return result;
     } catch(err) {
@@ -80,7 +83,6 @@ app.get('/', async (req, res) => {
 
         //Store links in the in-memory store
         links.forEach(link => addLink(link.id, link.url));
-        console.log(linkStore)
         res.render('home', { Headlines: headlines, Links: links.map(link => link.id), Date: formattedDate })
     } catch(error) {
         console.error(error)

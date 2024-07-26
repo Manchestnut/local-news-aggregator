@@ -12,7 +12,11 @@
     </header>
     <main>
         <h2 class="story-title"><%= Page.title %></h2>
-        <p class="story-body"><%= Page.body %></p>
+        <div>
+            <% Page.paragraphs.forEach(paragraph => { %>
+                <p><%= paragraph %></p>
+            <% }); %>
+        </div>
         <br>
         <p>Source: <%= Source %></p>
     </main>
