@@ -2,7 +2,9 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const express = require('express');
 
+
 const app = express();
+app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
@@ -73,24 +75,28 @@ app.get('/', async (req, res) => {
     try {
         const headlines = await scrapeHeadlines()
         const links = await scrapeLinks()
+        const now = new Date().toDateString();
+        const formattedDate = now
 
         //Store links in the in-memory store
         links.forEach(link => addLink(link.id, link.url));
         console.log(linkStore)
-        res.render('home', { Headlines: headlines, Links: links.map(link => link.id) })
+        res.render('home', { Headlines: headlines, Links: links.map(link => link.id), Date: formattedDate })
     } catch(error) {
         console.error(error)
     }
 })
 app.get('/article/:id', async (req, res) => {
     const { id } = req.params
+    const now = new Date().toDateString();
+    const formattedDate = now
     try {
         const link = getLink(id);
         if(!link) {
             return res.status(404).send('Article not found');
         }
         const page = await scrapePage(link);
-        res.render('page', { Page: page });
+        res.render('page', { Page: page, Date: formattedDate, Source: link });
     } catch(error) {
         console.error(error)
         res.status(500).send('Internal server error')

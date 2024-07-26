@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title><%= Page.title %></title>
 </head>
 <body>
-    <a href="/">Return to home</a>
-    <h1><%= Page.title %></h1>
-    <br>
-    <p><%= Page.body %></p>
+    <header>
+        <h4><a href="/" id="home">Lite News PH </a><span> <%= Date %></span></h4>
+    </header>
+    <main>
+        <h2 class="story-title"><%= Page.title %></h2>
+        <p class="story-body"><%= Page.body %></p>
+        <br>
+        <p>Source: <%= Source %></p>
+    </main>
+
 </body>
 </html>
