@@ -96,7 +96,7 @@ app.get('/article/:id', async (req, res) => {
     try {
         const link = getLink(id);
         if(!link) {
-            return res.status(404).send('Article not found');
+            return res.status(404).render('404', { Date: formattedDate });
         }
         const page = await scrapePage(link);
         res.render('page', { Page: page, Date: formattedDate, Source: link });
@@ -107,5 +107,5 @@ app.get('/article/:id', async (req, res) => {
 })
 
 app.listen(3000, () => {
-    console.log('App is running at http://localhost:3000')
+    console.log('App is running at port 3000')
 });
