@@ -5,6 +5,8 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "puppeteer": "^22.14.0",
+    "puppeteer-core": "^22.14.0"
   }
 }

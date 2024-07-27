@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
     <link rel="stylesheet" href="/css/styles.css">
     <title>News Lite</title>
 </head>
@@ -11,13 +12,25 @@
         <h4><a href="/" id="home">Lite News PH </a><span> <%= Date %></span></h4>
     </header>
     <main>
-        <p>Latest Stories</p>
-        <ul>
-            <% for (let i=0; i < Headlines.length; i++) { %>
-                <li><a href="/article/<%= encodeURIComponent(Links[i]) %>"><%= Headlines[i] %></a></li>
-                <% Links[i] %>
-            <% }; %>
-        </ul>
+        <div>
+            <p>Latest Stories (GMA)</p>
+            <ul>
+                <% for (let i=0; i < HeadlinesGMA.length; i++) { %>
+                    <li><a href="/article/<%= encodeURIComponent(LinksGMA[i]) %>"><%= HeadlinesGMA[i] %></a></li>
+                    <% LinksGMA[i] %>
+                <% }; %>
+            </ul>   
+        </div>
+        <div>
+            <p>Latest Stories (Inquirer)</p>
+            <ul>
+                <% for (let i=0; i < HeadlinesInquirer.length; i++) { %>
+                    <li><a href="/article/<%= encodeURIComponent(LinksInquirer[i]) %>"><%= HeadlinesInquirer[i] %></a></li>
+                    <% LinksInquirer[i] %>
+                <% }; %>
+            </ul>  
+        </div>
+
     </main>
 
     <footer>
